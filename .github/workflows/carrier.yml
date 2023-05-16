@@ -1,0 +1,36 @@
+# Workflow名
+name: Carrier-technical
+
+# イベントトリガー
+on:
+  # 
+  schedule:
+    # POSIX cron 構文(UTC), 
+    - cron: '30 0 * * 1-5'
+#   手動で実行
+  workflow_dispatch:
+
+jobs:
+  # job名(任意の名前)
+  run-carrier-technical:
+    # Virtualmachineの形式を指定
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.1.6
+        with:
+          poetry-version: 1.4.2
+
+      - name: install dependencies
+        run: poetry install
+
+      - name: Run python
+        run:
+          poetry run python3 stock_report.py
+        env:
+          SLACK_ID: ${{ secrets.SLACK_ID }}

@@ -1,0 +1,30 @@
+# ticker
+ticker:
+      AAPL: 
+          RSI: 
+            - 14
+            - 60
+            - 30
+          BOLL:
+            - 14
+            - 3
+      GOOGL:
+          RSI: 
+            - 14
+            - 70
+            - 30
+          BOLL:
+            - 25
+            - 2
+      4661:
+          RSI: 
+            - 14
+            - 70
+            - 30
+          BOLL:
+            - 25
+            - 2
+      AMD:
+          BOLL:
+            - 14
+            - 3

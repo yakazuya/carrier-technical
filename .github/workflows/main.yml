@@ -1,0 +1,35 @@
+# Workflow名
+name: Carrier-technical-docker-faild
+
+# イベントトリガー
+on:
+  # 
+#   schedule:
+    # POSIX cron 構文(UTC), 
+#     - cron: '30 0 * * 1-5'
+#   手動で実行
+  workflow_dispatch:
+
+jobs:
+  # job名(任意の名前)
+  run-carrier-technical-docker-None:
+    # Virtualmachineの形式を指定
+    runs-on: ubuntu-22.04
+    # jobのステップ
+    steps:
+      # ソースコードをチェックアウトする(らしい) -> バージョン管理システムからリポジトリに保存されているファイルやデータを取得
+      - uses: actions/checkout@v3
+      - name: containar
+        env:
+          SLACK_ID: ${{ secrets.SLACK_ID }}
+        run: |
+          chmod +x ./docker/build.sh
+          ./docker/build.sh
+      - name: Run Python script in Docker container
+        uses: addnab/docker-run-action@v3
+        with:
+          image: carrier-technical:ubuntu2204
+          options: -v ${{ github.workspace }}:/home/carrier-technical　-e SLACK_ID = ${{ secrets.SLACK_ID }}
+          shell: bash
+          run: |
+            python3 stock_report.py

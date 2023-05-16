@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "carrier-technical"
+version = "0.1.0"
+description = ""
+authors = ["yabashikazuya"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+wheel = "0.37.1"
+slackweb = "1.0.5"
+pandas-datareader = "0.10.0"
+yfinance = "0.2.18"
+pyyaml = "6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
