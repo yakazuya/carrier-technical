@@ -49,7 +49,7 @@ def judge(config, df, result) -> dict:
             elif rsi < config['ticker'][key]['RSI'][2]:
                 notify_dict[key] = {}
                 lower = config['ticker'][key]['RSI'][2]
-                notify_dict[key]['RSI'] = f'RSIが{lower}を超えています'
+                notify_dict[key]['RSI'] = f'RSIが{lower}を下回っています'
         
         # BOLLを設定した場合に終値がBOLL超えているか
         if 'BOLL' in config['ticker'][key]:
