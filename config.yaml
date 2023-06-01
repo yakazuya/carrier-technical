@@ -40,11 +40,3 @@ ticker:
           BOLL:
             - 25
             - 2
-      TSLA: 
-          RSI: 
-            - 14
-            - 70
-            - 20
-          BOLL:
-            - 25
-            - 2
