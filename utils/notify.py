@@ -1,6 +1,8 @@
 import slackweb
 
 def send2app(text: str, slack_id: str) -> None:
+    if text == '':
+        text = '条件を満たす銘柄がありません'
     slack = slackweb.Slack(url = slack_id)
     slack.notify(text = text)
 
