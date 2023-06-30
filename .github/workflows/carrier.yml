@@ -3,10 +3,10 @@ name: Carrier-technical
 
 # イベントトリガー
 on:
-  # 
-  schedule:
-    # POSIX cron 構文(UTC), 
-    - cron: '30 0 * * 1-5'
+  # スケジュールで実行する場合
+#   schedule:
+#     # POSIX cron 構文(UTC), 
+#     - cron: '30 0 * * 1-5'
 #   手動で実行
   workflow_dispatch:
 
