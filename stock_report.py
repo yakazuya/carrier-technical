@@ -66,7 +66,7 @@ def judge(config, df, result) -> dict:
             if price < result['BOLL'][key]['lower_band']:
                 if key not in notify_dict:
                     notify_dict[key] = {}
-                notify_dict[key]['BOLL'] = f'BOLLが{σ}σを上回っています'
+                notify_dict[key]['BOLL'] = f'BOLLが{σ}σを下回っています'
             # elif price < result['BOLL'][key]['lower_band']:
             #     if not(key in notify_list):    
 
